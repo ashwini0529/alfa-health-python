@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
 
-@app.route('/<reg>')
-def dump(reg):
+@app.route('/')
+def dump():
     error = None
     url = 'https://api.myjson.com/bins/4f6yu'
     r = requests.get(url)
