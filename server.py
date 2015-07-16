@@ -35,7 +35,7 @@ def diet():
 	return json.dumps(r.json(), indent = 4)
 
 @app.route('/bmiCalculate/<age>/<weight>')
-def foo():
+def foo(age,weight):
     print age
     print weight
 
