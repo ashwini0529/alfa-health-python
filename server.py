@@ -14,6 +14,14 @@ def dump():
     r = requests.get(url)
     return json.dumps(r.json(), indent = 4)
 
+@app.route('/profile')
+def profile():
+	error = None
+	url = 'https://api.myjson.com/bins/59mna'
+	r = requests.get(url)
+	return json.dumps(r.json(), indent = 4)
+	
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     app.run(host='0.0.0.0', port= port)
