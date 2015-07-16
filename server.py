@@ -27,6 +27,12 @@ def exerciseList():
 	url = 'https://api.myjson.com/bins/ot06'
 	r = requests.get(url)
 	return json.dumps(r.json(), indent = 4)
+@app.route('/diet')
+def diet():
+	error = None
+	url = 'https://api.myjson.com/bins/4hz9y'
+	r = requests.get(url)
+	return json.dumps(r.json(), indent = 4)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
