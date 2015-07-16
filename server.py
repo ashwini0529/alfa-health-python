@@ -35,9 +35,8 @@ def diet():
 	return json.dumps(r.json(), indent = 4)
 
 @app.route('/bmiCalculate/<age>/<weight>')
-def foo(age,weight):
-    print age
-    print weight
+def bmi(age,weight):
+    return (age,weight)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
