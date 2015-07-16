@@ -34,10 +34,11 @@ def diet():
 	r = requests.get(url)
 	return json.dumps(r.json(), indent = 4)
 
-@app.route('/calculateBMI', methods= ["GET"])
+@app.route('/bmiCalculate', methods=['GET'])
 def foo():
-	print requests.args.get('age')
-	print requests.args.get('weight')
+    print request.args.get('age')
+    print request.args.get('weight')
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     app.run(host='0.0.0.0', port= port)
