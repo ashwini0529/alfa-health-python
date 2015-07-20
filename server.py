@@ -1,5 +1,5 @@
 from flask import Flask, session, render_template
-import requests
+from flask import requests
 import json
 import os
 
@@ -37,6 +37,11 @@ def diet():
 @app.route('/bmiCalculate/<age>/<weight>')
 def bmi(age,weight):
     return (age,weight)
+    
+@app.route('/createcm', methods=['GET'])
+def foo():
+    print request.args.get('summary')
+    print request.args.get('change')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
