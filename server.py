@@ -40,9 +40,7 @@ def bmi(age,weight):
     
 @app.route('/createcm', methods=['GET'])
 def foo():
-    print request.args.get('age', type=int)
-    request.args.get('weight', type=int)
-
+    return str(request.args.get("age",type=int) + request.args.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     app.run(host='0.0.0.0', port= port, debug = True)
