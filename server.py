@@ -4,7 +4,7 @@ import json
 import os
 
 app = Flask(__name__)
-
+app.debug = True
 app.secret_key = os.urandom(24)
 
 @app.route('/')
