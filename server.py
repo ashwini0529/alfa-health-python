@@ -1,10 +1,10 @@
 from flask import Flask, session, render_template
-from flask import requests
+import requests
 import json
 import os
 
 app = Flask(__name__)
-app.debug = True
+
 app.secret_key = os.urandom(24)
 
 @app.route('/')
@@ -34,13 +34,6 @@ def diet():
 	r = requests.get(url)
 	return json.dumps(r.json(), indent = 4)
 
-@app.route('/bmiCalculate/<age>/<weight>')
-def bmi(age,weight):
-    return (age,weight)
-    
-@app.route('/createcm', methods=['GET'])
-def foo():
-    return str(request.args.get("age",type=int) + request.args.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
-    app.run(host='0.0.0.0', port= port, debug = True)
+    app.run(host='0.0.0.0', port= port)
