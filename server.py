@@ -33,7 +33,9 @@ def diet():
 	url = 'https://api.myjson.com/bins/4hz9y'
 	r = requests.get(url)
 	return json.dumps(r.json(), indent = 4)
-
+@app.route('/calculate', methods=['GET'])
+def foo():
+    return str(request.args.get("age",type=int) + request.args.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     app.run(host='0.0.0.0', port= port)
