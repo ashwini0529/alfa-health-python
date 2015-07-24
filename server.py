@@ -1,4 +1,6 @@
 from flask import Flask, session, render_template
+## you did not import "request"
+from flask import request
 import requests
 import json
 import os
@@ -35,7 +37,9 @@ def diet():
 	return json.dumps(r.json(), indent = 4)
 @app.route('/calculate', methods=['GET'])
 def foo():
-    return str(request.args.get("age",type=int) + request.args.get("weight",type=int))
+	## the get request should be "/calculate?age=23&wight=99"
+	return str(request.args.get("age",type=int)) + str(request.args.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
-    app.run(host='0.0.0.0', port= port)
+    ## keep the debug mode on in flask - it helps
+    app.run(host='0.0.0.0', port= port, debug=True)
