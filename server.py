@@ -40,7 +40,7 @@ def foo():
 	## the get request should be "/calculate?age=23&wight=99"
 	a=requests.args.get("age", type=int)
 
-	return int(request.args.get("age",type=int)) + int(request.args.get("weight",type=int))
+	return int(request.get("age",type=int)) + int(request.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
