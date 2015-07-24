@@ -38,7 +38,9 @@ def diet():
 @app.route('/calculate', methods=['GET'])
 def foo():
 	## the get request should be "/calculate?age=23&wight=99"
-	return (request.args.get("age",type=int) + request.args.get("weight",type=int))
+	a=requests.args.get("age", type=int)
+
+	return int(request.args.get("age",type=int)) + int(request.args.get("weight",type=int))
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
