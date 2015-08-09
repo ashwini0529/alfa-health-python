@@ -67,7 +67,7 @@ def exercise():
 		url = "https://api.myjson.com/bins/4mua8"
 		r=requests.get(url)
 		return json.dumps(r.json(), indent=4)
-	
+	else return "Sorry! Exercise not found in database!"
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
