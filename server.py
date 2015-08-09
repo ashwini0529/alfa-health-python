@@ -40,7 +40,7 @@ def foo():
 	## the get request should be "/calculate?age=23&wight=99"
 	return str(request.args.get("age",type=int)) + str(request.args.get("weight",type=int))
 	
-@app.route('/exerciseSample', methods=['GETT'])
+@app.route('/exerciseSample', methods=['GET'])
 def exercise():
 	num=request.args.get("id", type=int)
 	if(num==1):
