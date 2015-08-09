@@ -39,6 +39,35 @@ def diet():
 def foo():
 	## the get request should be "/calculate?age=23&wight=99"
 	return str(request.args.get("age",type=int)) + str(request.args.get("weight",type=int))
+	
+@app.route('/exerciseSample', methods=['GETT'])
+def exercise():
+	num=request.args.get("id", type=int)
+	if(num==1):
+		url = "https://api.myjson.com/bins/4xk34"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	if(num==2):
+		url = "http://api.myjson.com/bins/3su1c"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	if(num==3):
+		url = "https://api.myjson.com/bins/vt68"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	if(num==4):
+		url = "https://api.myjson.com/bins/24tjk"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	if(num==5):
+		url = "https://api.myjson.com/bins/103hs"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	if(num==6):
+		url = "https://api.myjson.com/bins/4mua8"
+		r=requests.get(url)
+		return json.dumps(r.json(), indent=4)
+	
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
