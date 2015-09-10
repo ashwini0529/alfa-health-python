@@ -115,10 +115,7 @@ def exer():
     return 'yo'
 ########################################################
 if __name__ == '__main__':
-<<<<<<< HEAD
     port = int(os.environ.get('PORT',5003))
-=======
     port = int(os.environ.get('PORT',5000))
->>>>>>> e27589a354bb2b68943b6d43aabc5431299e2bb2
     ## keep the debug mode on in flask - it helps
     app.run(host='0.0.0.0', port= port, debug=True)
