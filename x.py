@@ -4,11 +4,10 @@ with open('workout.json') as data_file:
 	data = json.load(data_file)
 conn = sqlite3.connect('content.db')
 count=1
-id= str(data[0]['id'])
-print id
-conn.execute('update workout set ids = "skdfajkfadfafd" where id = 1')
-#conn.execute('INSERT into  workout (ids) values (?)',[id])
-#for row in y:
-#   print "ID = ", row[16]
-conn.commit()
+for i in data:
+	if(count<874):
+		ids = str(i['id'])
+		conn.execute("update workout set rating = 1") 
+		conn.commit()
+		count=count+1
 print 'done'
