@@ -1,4 +1,10 @@
 # alfa-health-python
 ## Things to do: 
-1. Add multiple get method to calculate various thinigs in bmi app route.
-2. To develop multiple routes for other major function and implementation of the algorithm
+1. Make 3rd party API's for Business purpose.
+2. Make Master API for Self.
+##API's left
+1. ~~Workout API~~ Done
+2. Food API
+
+## Priority 
+Authentication keys.
