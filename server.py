@@ -87,7 +87,7 @@ def work():
     sel = g.db.execute("select * from workout where type LIKE ? AND muscle_worked LIKE ? AND mech_type LIKE ? AND equipment LIKE ?",[typ,muscles_worked,mech_type,instrument])
 
     for row in sel.fetchall():
-        dic = json.loads(json.dumps({'name':row[1],'muscles_worked':row[2],'max_reps': 8,'min_reps':2,'tags':[{"be_healthy":1,"tone_up":1,"loose_weight":1,"get_filter":1,"stamming":1}] ,'force':row[3],'rating':int(row[4]),'level':row[5],'pic_right':row[6],'mech_type':row[7],'equipment':row[8],'link':row[9],'pic_left':row[10],'Sport':row[11],'type':row[12],'guide':row[14],'global_rating':1400,'strech_type': row[13],"exercise_rating":1},indent=4))
+        dic = json.loads(json.dumps({'id':row[16],'name':row[1],'muscles_worked':row[2],'max_reps': 8,'min_reps':2,'tags':[{"be_healthy":1,"tone_up":1,"loose_weight":1,"get_filter":1,"stamming":1}] ,'force':row[3],'rating':int(row[4]),'level':row[5],'pic_right':row[6],'mech_type':row[7],'equipment':row[8],'link':row[9],'pic_left':row[10],'Sport':row[11],'type':row[12],'guide':row[14],'global_rating':1400,'strech_type': row[13],"exercise_rating":1},indent=4))
         lis.append(dic)
     return jsonify(workout=lis)
 

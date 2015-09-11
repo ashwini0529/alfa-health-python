@@ -5,9 +5,9 @@ with open('workout.json') as data_file:
 conn = sqlite3.connect('content.db')
 count=1
 for i in data:
-	if(count<874):
-		ids = str(i['id'])
-		conn.execute("update workout set rating = 1") 
+	while(count<874):
+		ids = str(data[count-1]['id'])
+		conn.execute("update workout set ids = ? where id = ?",[ids,count]) 
 		conn.commit()
 		count=count+1
 print 'done'
