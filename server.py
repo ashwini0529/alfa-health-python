@@ -90,9 +90,20 @@ def work():
         dic = json.loads(json.dumps({'id':row[16],'name':row[1],'muscles_worked':row[2],'max_reps': 8,'min_reps':2,'tags':[{"be_healthy":1,"tone_up":1,"loose_weight":1,"get_filter":1,"stamming":1}] ,'force':row[3],'rating':int(row[4]),'level':row[5],'pic_right':row[6],'mech_type':row[7],'equipment':row[8],'link':row[9],'pic_left':row[10],'Sport':row[11],'type':row[12],'guide':row[14],'global_rating':1400,'strech_type': row[13],"exercise_rating":1,'calories_burned' : row[17], 'age_preferred':row[18],'bodyBuilding_rating':row[19],'time':row[20]},indent=4))
         lis.append(dic)
     return jsonify(workout=lis)
+@app.route('/workouting')
+def worka():
+	lis= []
+	sel = g.db.execute("select * from workout")
+	for row in sel.fetchall():
+	        dic = json.loads(json.dumps({'id':row[16],'name':row[1],'muscles_worked':row[2],'max_reps': 8,'min_reps':2,'tags':[{"be_healthy":1,"tone_up":1,"loose_weight":1,"get_filter":1,"stamming":1}] ,'force':row[3],'rating':int(row[4]),'level':row[5],'pic_right':row[6],'mech_type':row[7],'equipment':row[8],'link':row[9],'pic_left':row[10],'Sport':row[11],'type':row[12],'guide':row[14],'global_rating':1400,'strech_type': row[13],"exercise_rating":1,'calories_burned' : row[17], 'age_preferred':row[18],'bodyBuilding_rating':row[19],'time':row[20]},indent=4))
+	        lis.append(dic)
+	with open('workout_organised.json','w') as outfile:
+		json.dump(lis, outfile)
+
+	return jsonify(workout=lis)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5003))
-    port = int(os.environ.get('PORT',5000))
     ## keep the debug mode on in flask - it helps
     app.run(host='0.0.0.0', port= port, debug=True)
